@@ -16,7 +16,13 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Routes
+const postRoutes = require("./routes/postRoutes");
+app.use("/posts", postRoutes);
+const commentRoutes = require("./routes/commentRoutes");
+app.use("/comments", commentRoutes);
+
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
-  });
+});
